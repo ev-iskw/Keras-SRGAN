@@ -25,13 +25,18 @@ image_shape = (96, 96, 3)
 
 
 def test_model(input_hig_res, model, number_of_images, output_dir):
-    x_test_lr, x_test_hr = Utils.load_test_data_for_model(input_hig_res, 'jpg', number_of_images)
+    x_test_lr, x_test_hr = Utils.load_test_data_for_model(input_hig_res, 'png', number_of_images)
     Utils.plot_test_generated_images_for_model(output_dir, model, x_test_hr, x_test_lr)
 
 
 def test_model_for_lr_images(input_low_res, model, number_of_images, output_dir):
-    x_test_lr = Utils.load_test_data(input_low_res, 'jpg', number_of_images)
+    x_test_lr = Utils.load_test_data(input_low_res, 'png', number_of_images)
     Utils.plot_test_generated_images(output_dir, model, x_test_lr)
+
+
+def output(input_hig_res, model, number_of_images):
+    x_test_lr, _ = Utils.load_test_data_for_model(input_hig_res, 'png', number_of_images)
+    Utils.output_image(model, x_test_lr)
 
 
 if __name__ == "__main__":
@@ -53,7 +58,7 @@ if __name__ == "__main__":
     parser.add_argument('-n', '--number_of_images', action='store', dest='number_of_images', default=25,
                         help='Number of Images', type=int)
 
-    parser.add_argument('-t', '--test_type', action='store', dest='test_type', default='test_model',
+    parser.add_argument('-t', '--test_type', action='store', dest='test_type', default='output',
                         help='Option to test model output or to test low resolution image')
 
     values = parser.parse_args()
@@ -66,6 +71,9 @@ if __name__ == "__main__":
 
     elif values.test_type == 'test_lr_images':
         test_model_for_lr_images(values.input_low_res, model, values.number_of_images, values.output_dir)
+
+    elif values.test_type == 'output':
+        output(values.input_hig_res, model, values.number_of_images, values.output_dir)
 
     else:
         print("No such option")

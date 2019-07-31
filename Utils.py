@@ -156,7 +156,7 @@ def load_test_data_for_model(directory, ext, number_of_images=100):
     x_test_hr = hr_images(files)
     x_test_hr = normalize(x_test_hr)
 
-    x_test_lr = lr_images(files, 4)
+    x_test_lr = lr_images(files, 2)
     x_test_lr = normalize(x_test_lr)
 
     return x_test_lr, x_test_hr
@@ -170,7 +170,7 @@ def load_test_data(directory, ext, number_of_images=100):
         print("Please reduce number of images to %d" % len(files))
         sys.exit()
 
-    x_test_lr = lr_images(files, 4)
+    x_test_lr = lr_images(files, 2)
     x_test_lr = normalize(x_test_lr)
 
     return x_test_lr
@@ -237,6 +237,18 @@ def plot_test_generated_images_for_model(output_dir, generator, x_test_hr, x_tes
         plt.savefig(output_dir + 'test_generated_image_%d.png' % index)
 
         # plt.show()
+
+
+def output_image(generator, x_test_hr_raw):
+    x_test_lr = lr_images([x_test_hr_raw], 2)
+    x_test_lr = normalize(x_test_lr)
+    gen_img = generator.predict(x_test_lr)
+    generated_image = denormalize(gen_img)
+    cv2.imwrite('./generated.png', generated_image)
+    print('Output generated.png')
+    x_test_lr = denormalize(x_test_lr)
+    cv2.imwrite('./interpolate.png', x_test_lr)
+    print('Output interpolate.png')
 
 
 # Takes LR images and save respective HR images
