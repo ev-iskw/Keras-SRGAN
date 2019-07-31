@@ -133,13 +133,13 @@ def load_training_data(directory, ext, number_of_images=1000, train_test_ratio=0
     x_train_hr = hr_images(x_train)
     x_train_hr = normalize(x_train_hr)
 
-    x_train_lr = lr_images(x_train, 4)
+    x_train_lr = lr_images(x_train, 2)  # Ishikawa's change
     x_train_lr = normalize(x_train_lr)
 
     x_test_hr = hr_images(x_test)
     x_test_hr = normalize(x_test_hr)
 
-    x_test_lr = lr_images(x_test, 4)
+    x_test_lr = lr_images(x_test, 2)  # Ishikawa's change
     x_test_lr = normalize(x_test_lr)
 
     return x_train_lr, x_train_hr, x_test_lr, x_test_hr
