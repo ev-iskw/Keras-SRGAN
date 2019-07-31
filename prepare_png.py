@@ -44,6 +44,6 @@ if __name__ == '__main__':
     with tf.Session() as sess:
         for j in range(args.size):
             im = sess.run(input)
-            cv2.imwrite('./data/{}.jpg'.format(j), im)
+            cv2.imwrite('./data/{}.png'.format(j), im)
             print(j)
 

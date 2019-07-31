@@ -42,7 +42,7 @@ def get_gan_network(discriminator, shape, generator, optimizer, vgg_loss):
 # default values for all parameters are given, if want defferent values you can give via commandline
 # for more info use $python train.py -h
 def train(epochs, batch_size, input_dir, output_dir, model_save_dir, number_of_images, train_test_ratio):
-    x_train_lr, x_train_hr, x_test_lr, x_test_hr = Utils.load_training_data(input_dir, '.jpg', number_of_images,
+    x_train_lr, x_train_hr, x_test_lr, x_test_hr = Utils.load_training_data(input_dir, '.png', number_of_images,
                                                                             train_test_ratio)
     loss = VGG_LOSS(image_shape)
 
