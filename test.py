@@ -6,6 +6,8 @@
 # usage           :python test.py --options
 # python_version  :3.5.4
 
+# python test.py --input_hig_res ./raw.png
+
 from keras.models import Model
 import matplotlib.pyplot as plt
 import tensorflow as tf
@@ -34,9 +36,8 @@ def test_model_for_lr_images(input_low_res, model, number_of_images, output_dir)
     Utils.plot_test_generated_images(output_dir, model, x_test_lr)
 
 
-def output(input_hig_res, model, number_of_images):
-    x_test_lr, _ = Utils.load_test_data_for_model(input_hig_res, 'png', number_of_images)
-    Utils.output_image(model, x_test_lr)
+def output(x_test_hr, model):
+    Utils.output_image(model, x_test_hr)
 
 
 if __name__ == "__main__":
@@ -73,7 +74,7 @@ if __name__ == "__main__":
         test_model_for_lr_images(values.input_low_res, model, values.number_of_images, values.output_dir)
 
     elif values.test_type == 'output':
-        output(values.input_hig_res, model, values.number_of_images, values.output_dir)
+        output(values.input_hig_res, model)
 
     else:
         print("No such option")
