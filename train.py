@@ -6,7 +6,7 @@
 # usage           :python train.py --options
 # python_version  :3.5.4
 
-#  python train.py --input_dir='./data/' --output_dir='./output/' --model_save_dir='./model/' --batch_size=1 --epochs=3000 --number_of_images=100 --train_test_ratio=0.8
+#  python train.py --input_dir='./data/' --output_dir='./output/' --model_save_dir='./model/' --batch_size=5 --epochs=3000 --number_of_images=100 --train_test_ratio=0.8
 
 from Network import Generator, Discriminator
 import Utils_model, Utils
