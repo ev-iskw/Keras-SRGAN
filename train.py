@@ -20,7 +20,7 @@ import argparse
 
 np.random.seed(10)
 # Better to use downscale factor as 4
-downscale_factor = 4
+downscale_factor = 2  # Ishikawa's change
 # Remember to change image shape if you are having different size of images
 image_shape = (384, 384, 3)
 

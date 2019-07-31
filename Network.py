@@ -81,7 +81,7 @@ class Generator(object):
 	    model = add([gen_model, model])
 	    
 	    # Using 2 UpSampling Blocks
-	    for index in range(2):
+	    for index in range(1): # Ishikawa's change
 	        model = up_sampling_block(model, 3, 256, 1)
 	    
 	    model = Conv2D(filters = 3, kernel_size = 9, strides = 1, padding = "same")(model)
