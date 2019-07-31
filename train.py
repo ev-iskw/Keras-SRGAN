@@ -17,7 +17,6 @@ from keras.layers import Input
 from tqdm import tqdm
 import numpy as np
 import argparse
-import cv2
 
 np.random.seed(10)
 # Better to use downscale factor as 4

@@ -15,6 +15,7 @@ from numpy.random import randint
 from scipy.misc import imresize
 import os
 import sys
+import cv2
 
 import matplotlib.pyplot as plt
 
