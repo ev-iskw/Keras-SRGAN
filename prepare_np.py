@@ -35,7 +35,7 @@ if __name__ == '__main__':
     record = '/home/ryougoishikawa/ml-training/super-resolution/dataset/tfrecords/*.tfrecords'
     dataset = tf.data.Dataset.list_files(record)
     dataset = dataset.interleave(tf.data.TFRecordDataset, cycle_length=1, num_parallel_calls=1)
-    dataset = dataset.flat_map(crop_image)
+    dataset = dataset.map(crop_image)
     dataset = dataset.repeat()
     input = dataset.make_one_shot_iterator().get_next()
 
