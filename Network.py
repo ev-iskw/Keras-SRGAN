@@ -25,11 +25,11 @@ def res_block_gen(model, kernal_size, filters, strides):
     gen = model
     
     model = Conv2D(filters = filters, kernel_size = kernal_size, strides = strides, padding = "same")(model)
-    model = BatchNormalization(momentum = 0.5)(model)
+    # model = BatchNormalization(momentum = 0.5)(model)
     # Using Parametric ReLU
     model = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1,2])(model)
     model = Conv2D(filters = filters, kernel_size = kernal_size, strides = strides, padding = "same")(model)
-    model = BatchNormalization(momentum = 0.5)(model)
+    # model = BatchNormalization(momentum = 0.5)(model)
         
     model = add([gen, model])
     
