@@ -241,7 +241,7 @@ def plot_test_generated_images_for_model(output_dir, generator, x_test_hr, x_tes
 
 
 def output_image(generator, x_test_hr_raw):
-    x_test_lr = lr_images([x_test_hr_raw], 2)
+    x_test_lr = lr_images([cv2.imread(x_test_hr_raw)], 2)
     x_test_lr = normalize(x_test_lr)
     gen_img = generator.predict(x_test_lr)
     generated_image = denormalize(gen_img)
