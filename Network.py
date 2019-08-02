@@ -89,6 +89,7 @@ class Generator(object):
         model1 = Activation('tanh')(model1)
 
         generator_model1 = Model(inputs=gen_input1, outputs=model1)
+        generator_model1.summary()
 
         return generator_model1
 
