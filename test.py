@@ -17,7 +17,7 @@ import numpy as np
 from numpy import array
 import os
 from keras.models import load_model
-from Network import test_Generator
+from Network import test_Generator, Generator
 from scipy.misc import imresize
 import argparse
 
@@ -65,23 +65,23 @@ if __name__ == "__main__":
 
     values = parser.parse_args()
 
-    # loss = VGG_LOSS(image_shape)
-    # model = load_model(values.model_dir, custom_objects={'vgg_loss': loss.vgg_loss})
-    t_model = test_Generator()
-    print(t_model)
-    t_model.load_weight(values.model_dir)
-    print(t_model)
-    exit()
+    loss = VGG_LOSS(image_shape)
+    model = load_model(values.model_dir, custom_objects={'vgg_loss': loss.vgg_loss})
+    # t_model = test_Generator()
+    # print(t_model)
+    # t_model.load_weight(values.model_dir)
+    # print(t_model)
+    # exit()
 
 
-    # if values.test_type == 'test_model':
-    #     test_model(values.input_hig_res, model, values.number_of_images, values.output_dir)
-    #
-    # elif values.test_type == 'test_lr_images':
-    #     test_model_for_lr_images(values.input_low_res, model, values.number_of_images, values.output_dir)
-    #
-    # elif values.test_type == 'output':
-    #     output(values.input_hig_res, model)
-    #
-    # else:
-    #     print("No such option")
+    if values.test_type == 'test_model':
+        test_model(values.input_hig_res, model, values.number_of_images, values.output_dir)
+
+    elif values.test_type == 'test_lr_images':
+        test_model_for_lr_images(values.input_low_res, model, values.number_of_images, values.output_dir)
+
+    elif values.test_type == 'output':
+        output(values.input_hig_res, model)
+
+    else:
+        print("No such option")
