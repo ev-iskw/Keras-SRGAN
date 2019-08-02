@@ -49,7 +49,7 @@ def train(epochs, batch_size, input_dir, output_dir, model_save_dir, number_of_i
     batch_count = int(x_train_hr.shape[0] / batch_size)
     shape = (image_shape[0] // downscale_factor, image_shape[1] // downscale_factor, image_shape[2])  # Not good
 
-    generator = Generator(shape).generator()
+    generator, _ = Generator(shape).generator()
     discriminator = Discriminator(image_shape).discriminator()
 
     optimizer = Utils_model.get_optimizer()

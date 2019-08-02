@@ -286,7 +286,126 @@ class Generator(object):
         generator_model1 = Model(inputs=gen_input1, outputs=model1)
         generator_model1.summary()
 
-        return generator_model1
+        model2 = conv2d_1(gen_input2)
+        model2 = p_re_lu_1(model2)
+        gen_model2 = model2
+
+        gen_t = model2
+        model2 = res_1_conv2d_1(model2)
+        model2 = res_1_p_re_lu(model2)
+        model2 = res_1_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_2_conv2d_1(model2)
+        model2 = res_2_p_re_lu(model2)
+        model2 = res_2_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_3_conv2d_1(model2)
+        model2 = res_3_p_re_lu(model2)
+        model2 = res_3_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_4_conv2d_1(model2)
+        model2 = res_4_p_re_lu(model2)
+        model2 = res_4_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_5_conv2d_1(model2)
+        model2 = res_5_p_re_lu(model2)
+        model2 = res_5_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_6_conv2d_1(model2)
+        model2 = res_6_p_re_lu(model2)
+        model2 = res_6_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_7_conv2d_1(model2)
+        model2 = res_7_p_re_lu(model2)
+        model2 = res_7_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_8_conv2d_1(model2)
+        model2 = res_8_p_re_lu(model2)
+        model2 = res_8_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_9_conv2d_1(model2)
+        model2 = res_9_p_re_lu(model2)
+        model2 = res_9_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_10_conv2d_1(model2)
+        model2 = res_10_p_re_lu(model2)
+        model2 = res_10_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_11_conv2d_1(model2)
+        model2 = res_11_p_re_lu(model2)
+        model2 = res_11_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_12_conv2d_1(model2)
+        model2 = res_12_p_re_lu(model2)
+        model2 = res_12_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_13_conv2d_1(model2)
+        model2 = res_13_p_re_lu(model2)
+        model2 = res_13_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_14_conv2d_1(model2)
+        model2 = res_14_p_re_lu(model2)
+        model2 = res_14_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_15_conv2d_1(model2)
+        model2 = res_15_p_re_lu(model2)
+        model2 = res_15_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        gen_t = model2
+        model2 = res_16_conv2d_1(model2)
+        model2 = res_16_p_re_lu(model2)
+        model2 = res_16_conv2d_2(model2)
+        model2 = add([gen_t, model2])
+
+        # # Using 16 Residual Blocks
+        # for index in range(16):
+        #     model1 = res_block_gen(model1, 3, 64, 1)
+
+        model2 = conv2d_2(model2)
+        model2 = add([gen_model2, model2])
+
+        # Using 2 UpSampling Blocks
+        # for index in range(1):  # Ishikawa's change
+        #     model1 = up_sampling_block(model1, 3, 256, 1)
+        model2 = up_1(model2)
+        model2 = up_2(model2)
+        model2 = up_3(model2)
+
+        model2 = conv2d_3(model2)
+        model2 = Activation('tanh')(model2)
+
+        generator_model2 = Model(inputs=gen_input2, outputs=model2)
+
+        return generator_model1, generator_model2
 
 
 # Network Architecture is same as given in Paper https://arxiv.org/pdf/1609.04802.pdf
