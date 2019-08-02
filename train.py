@@ -22,7 +22,7 @@ np.random.seed(10)
 # Better to use downscale factor as 4
 downscale_factor = 2  # Ishikawa's change
 # Remember to change image shape if you are having different size of images
-image_shape = (None, None, 3)
+image_shape = (384, 384, 3)
 
 
 # Combined network
@@ -47,7 +47,7 @@ def train(epochs, batch_size, input_dir, output_dir, model_save_dir, number_of_i
     loss = VGG_LOSS(image_shape)
 
     batch_count = int(x_train_hr.shape[0] / batch_size)
-    shape = (192, 192, image_shape[2])  # Not good
+    shape = (None, None, image_shape[2])  # Not good
 
     generator = Generator(shape).generator()
     discriminator = Discriminator(image_shape).discriminator()
