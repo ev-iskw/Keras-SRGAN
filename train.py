@@ -97,6 +97,8 @@ def train(epochs, batch_size, input_dir, output_dir, model_save_dir, number_of_i
 
         if e == 1 or e % 5 == 0:
             Utils.plot_generated_images(output_dir, e, generator, x_test_hr, x_test_lr)
+            generator.save_weights(model_save_dir + 'gen_model%d.h5' % e)
+            exit()
         if e % 500 == 0:
             generator.save(model_save_dir + 'gen_model%d.h5' % e)
             discriminator.save(model_save_dir + 'dis_model%d.h5' % e)
