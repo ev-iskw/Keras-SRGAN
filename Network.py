@@ -69,7 +69,86 @@ class Generator(object):
         conv2d_1 = Conv2D(filters=64, kernel_size=9, strides=1, padding="same")
         p_re_lu_1 = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
         # gen_model1 = model1
-        #
+        #  ResNet invariants definition
+
+        res_1_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_1_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_1_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_2_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_2_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_2_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_3_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_3_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_3_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_4_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_4_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_4_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_5_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_5_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_5_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_6_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_6_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_6_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_7_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_7_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_7_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_8_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_8_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_8_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_9_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_9_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_9_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_10_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_10_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_10_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_11_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_11_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_11_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_12_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_12_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_12_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_13_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_13_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_13_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_14_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_14_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_14_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_14_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_14_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_14_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_15_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_15_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_15_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        res_16_conv2d_1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        res_16_p_re_lu = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
+        res_16_conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+        # finish
+
+        conv2d_2 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")
+
+        up_1 = Conv2D(filters=256, kernel_size=3, strides=1, padding="same")
+        up_2 = UpSampling2D(size=2)
+        up_3 = LeakyReLU(alpha=0.2)
+
+        conv2d_3 = Conv2D(filters=3, kernel_size=9, strides=1, padding="same")
+
+        # model = add([gen, model])
         # # Using 16 Residual Blocks
         # for index in range(16):
         #     model1 = res_block_gen(model1, 3, 64, 1)
@@ -91,19 +170,117 @@ class Generator(object):
         model1 = p_re_lu_1(model1)
         gen_model1 = model1
 
-        # Using 16 Residual Blocks
-        for index in range(16):
-            model1 = res_block_gen(model1, 3, 64, 1)
+        gen_t = model1
+        model1 = res_1_conv2d_1(model1)
+        model1 = res_1_p_re_lu(model1)
+        model1 = res_1_conv2d_2(model1)
+        model1 = add([gen_t, model1])
 
-        model1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")(model1)
-        # model = BatchNormalization(momentum = 0.5)(model)
+        gen_t = model1
+        model1 = res_2_conv2d_1(model1)
+        model1 = res_2_p_re_lu(model1)
+        model1 = res_2_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_3_conv2d_1(model1)
+        model1 = res_3_p_re_lu(model1)
+        model1 = res_3_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_4_conv2d_1(model1)
+        model1 = res_4_p_re_lu(model1)
+        model1 = res_4_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_5_conv2d_1(model1)
+        model1 = res_5_p_re_lu(model1)
+        model1 = res_5_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_6_conv2d_1(model1)
+        model1 = res_6_p_re_lu(model1)
+        model1 = res_6_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_7_conv2d_1(model1)
+        model1 = res_7_p_re_lu(model1)
+        model1 = res_7_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_8_conv2d_1(model1)
+        model1 = res_8_p_re_lu(model1)
+        model1 = res_8_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_9_conv2d_1(model1)
+        model1 = res_9_p_re_lu(model1)
+        model1 = res_9_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_10_conv2d_1(model1)
+        model1 = res_10_p_re_lu(model1)
+        model1 = res_10_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_11_conv2d_1(model1)
+        model1 = res_11_p_re_lu(model1)
+        model1 = res_11_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_12_conv2d_1(model1)
+        model1 = res_12_p_re_lu(model1)
+        model1 = res_12_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_13_conv2d_1(model1)
+        model1 = res_13_p_re_lu(model1)
+        model1 = res_13_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_14_conv2d_1(model1)
+        model1 = res_14_p_re_lu(model1)
+        model1 = res_14_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_15_conv2d_1(model1)
+        model1 = res_15_p_re_lu(model1)
+        model1 = res_15_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        gen_t = model1
+        model1 = res_16_conv2d_1(model1)
+        model1 = res_16_p_re_lu(model1)
+        model1 = res_16_conv2d_2(model1)
+        model1 = add([gen_t, model1])
+
+        # # Using 16 Residual Blocks
+        # for index in range(16):
+        #     model1 = res_block_gen(model1, 3, 64, 1)
+
+        model1 = conv2d_2(model1)
         model1 = add([gen_model1, model1])
 
         # Using 2 UpSampling Blocks
-        for index in range(1):  # Ishikawa's change
-            model1 = up_sampling_block(model1, 3, 256, 1)
+        # for index in range(1):  # Ishikawa's change
+        #     model1 = up_sampling_block(model1, 3, 256, 1)
+        model1 = up_1(model1)
+        model1 = up_2(model1)
+        model1 = up_3(model1)
 
-        model1 = Conv2D(filters=3, kernel_size=9, strides=1, padding="same")(model1)
+        model1 = conv2d_3(model1)
         model1 = Activation('tanh')(model1)
 
         generator_model1 = Model(inputs=gen_input1, outputs=model1)
