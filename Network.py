@@ -67,10 +67,7 @@ class Generator(object):
         gen_input2 = Input(shape=(None, None, 3))
 
         conv2d_1 = Conv2D(filters=64, kernel_size=9, strides=1, padding="same")
-        # model1 = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
-        #     model1)
-        # # model = LeakyReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
-        # # model)
+        p_re_lu_1 = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])
         # gen_model1 = model1
         #
         # # Using 16 Residual Blocks
@@ -91,7 +88,7 @@ class Generator(object):
         # generator_model1 = Model(inputs=gen_input1, outputs=model1)
 
         model1 = conv2d_1(gen_input1)
-        model1 = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
+        model1 = p_re_lu_1(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
             model1)
         # model = LeakyReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
         # model)
