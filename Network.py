@@ -66,7 +66,31 @@ class Generator(object):
         gen_input1 = Input(shape=self.noise_shape)
         gen_input2 = Input(shape=(None, None, 3))
 
-        model1 = Conv2D(filters=64, kernel_size=9, strides=1, padding="same")(gen_input1)
+        conv2d_1 = Conv2D(filters=64, kernel_size=9, strides=1, padding="same")
+        # model1 = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
+        #     model1)
+        # # model = LeakyReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
+        # # model)
+        # gen_model1 = model1
+        #
+        # # Using 16 Residual Blocks
+        # for index in range(16):
+        #     model1 = res_block_gen(model1, 3, 64, 1)
+        #
+        # model1 = Conv2D(filters=64, kernel_size=3, strides=1, padding="same")(model1)
+        # # model = BatchNormalization(momentum = 0.5)(model)
+        # model1 = add([gen_model1, model1])
+        #
+        # # Using 2 UpSampling Blocks
+        # for index in range(1):  # Ishikawa's change
+        #     model1 = up_sampling_block(model1, 3, 256, 1)
+        #
+        # model1 = Conv2D(filters=3, kernel_size=9, strides=1, padding="same")(model1)
+        # model1 = Activation('tanh')(model1)
+        #
+        # generator_model1 = Model(inputs=gen_input1, outputs=model1)
+
+        model1 = conv2d_1(gen_input1)
         model1 = PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
             model1)
         # model = LeakyReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=[1, 2])(
