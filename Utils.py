@@ -17,6 +17,7 @@ import os
 import sys
 import cv2
 import random
+from Network import Generator, Discriminator
 
 import matplotlib.pyplot as plt
 
@@ -240,8 +241,12 @@ def plot_test_generated_images_for_model(output_dir, generator, x_test_hr, x_tes
         # plt.show()
 
 
-def output_image(generator, x_test_hr_raw):
+def output_image(dir, x_test_hr_raw):
     x_test_lr = lr_images([cv2.imread(x_test_hr_raw)], 2)
+    _, sa, sb, sc = x_test_lr.shape
+    _, generator = Generator((sa, sb, sc)).generator()
+    generator.load_weights(dir)
+    print('PL')
     x_test_lr = normalize(x_test_lr)
     gen_img = generator.predict(x_test_lr)
     generated_image = denormalize(gen_img)
