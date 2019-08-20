@@ -256,6 +256,7 @@ def output_image(dir, x_test_hr_raw):
     cv2.imwrite('./generated.png', generated_image)
     print('Output generated.png')
     x_test_lr = denormalize(x_test_lr)
+    x_test_lr = x_test_lr[0]
     cv2.imwrite('./interpolate.png', x_test_lr)
     print('Output interpolate.png')
 
