@@ -6,7 +6,8 @@
 # usage           :python test.py --options
 # python_version  :3.5.4
 
-# python test.py --input_hig_res ./raw.png
+# python test.py --input_hig_res ./raw.png -m ./model/gen_w3000.h5
+# input a high-resolution image and test the quality of image
 
 from keras.models import Model
 import matplotlib.pyplot as plt
