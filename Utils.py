@@ -251,6 +251,8 @@ def output_image(dir, x_test_hr_raw):
     gen_img = generator.predict(x_test_lr)
     generated_image = denormalize(gen_img)
     print(generated_image.shape)
+    generated_image = generated_image[0]
+    print(generated_image.shape)
     cv2.imwrite('./generated.png', generated_image)
     print('Output generated.png')
     x_test_lr = denormalize(x_test_lr)
