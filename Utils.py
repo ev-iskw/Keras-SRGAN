@@ -246,7 +246,8 @@ def output_image(dir, x_test_hr_raw):
     _, sa, sb, sc = x_test_lr.shape
     _, generator = Generator((sa, sb, sc)).generator()
     generator.load_weights(dir)
-    print('PL')
+    print(sa, sb, sc)
+    print(type(sa), type(sb), type(sc))
     x_test_lr = normalize(x_test_lr)
     gen_img = generator.predict(x_test_lr)
     generated_image = denormalize(gen_img)
