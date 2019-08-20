@@ -242,7 +242,7 @@ def plot_test_generated_images_for_model(output_dir, generator, x_test_hr, x_tes
 
 
 def output_image(dir, x_test_hr_raw):
-    x_test_lr = lr_images([cv2.imread(x_test_hr_raw)], 2)
+    x_test_lr = lr_images([cv2.imread(x_test_hr_raw)], 2)  # make a compressed image
     _, sa, sb, sc = x_test_lr.shape
     shape = (sa, sb, sc)
     _, generator = Generator(shape).generator()
@@ -250,9 +250,9 @@ def output_image(dir, x_test_hr_raw):
     x_test_lr = normalize(x_test_lr)
     gen_img = generator.predict(x_test_lr)
     generated_image = denormalize(gen_img)
-    print(generated_image.shape)
+    # print(generated_image.shape)
     generated_image = generated_image[0]
-    print(generated_image.shape)
+    # print(generated_image.shape)
     cv2.imwrite('./generated.png', generated_image)
     print('Output generated.png')
     x_test_lr = denormalize(x_test_lr)
