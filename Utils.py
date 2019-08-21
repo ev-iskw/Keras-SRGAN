@@ -52,7 +52,8 @@ def lr_images(images_real, downscale):
         [in]  quality:  圧縮する品質 (1-100)
         [out] out_imgs: 出力画像リスト
         """
-        quality = random.randint(15, 40)  # Decide quality factor(15-40) by random
+        # quality = random.randint(15, 40)  # Decide quality factor(15-40) by random
+        quality = 20
         encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), quality]
 
         result, encimg = cv2.imencode('.jpg', img, encode_param)
