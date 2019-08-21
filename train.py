@@ -103,7 +103,7 @@ def train(epochs, batch_size, input_dir, output_dir, model_save_dir, number_of_i
         if e % 500 == 0:
             # generator.save(model_save_dir + 'gen_model%d.h5' % e)
             generator.save_weights(model_save_dir + 'gen_w%d.h5' % e)
-            # discriminator.save(model_save_dir + 'dis_model%d.h5' % e)
+            discriminator.save(model_save_dir + 'dis_model%d.h5' % e)
 
 
 if __name__ == "__main__":
