@@ -55,6 +55,8 @@ def train(epochs, batch_size, input_dir, output_dir, model_save_dir, number_of_i
     optimizer = Utils_model.get_optimizer()
     generator.compile(loss=loss.vgg_loss, optimizer=optimizer)
     discriminator.compile(loss="binary_crossentropy", optimizer=optimizer)
+    generator.load_weights(model_save_dir + 'gen_3000')
+    discriminator.load_weights(model_save_dir + 'dis_model3000.h5')
 
     gan = get_gan_network(discriminator, shape, generator, optimizer, loss.vgg_loss)
 
@@ -103,7 +105,7 @@ def train(epochs, batch_size, input_dir, output_dir, model_save_dir, number_of_i
         if e % 50 == 0:
             # generator.save(model_save_dir + 'gen_model%d.h5' % e)
             generator.save_weights(model_save_dir + 'gen_w%d.h5' % e)
-            discriminator.save(model_save_dir + 'dis_model%d.h5' % e)
+            discriminator.save_weights(model_save_dir + 'dis_model%d.h5' % e)
 
 
 if __name__ == "__main__":
