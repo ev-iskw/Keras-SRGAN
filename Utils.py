@@ -39,13 +39,17 @@ def SubpixelConv2D(input_shape, scale=4):
 
 # Takes list of images and provide HR images in form of numpy array
 def hr_images(images):
-    images_hr = array(images)
+    images_l = []
+    for img in range(len(images)):
+        for x in range(26):
+            images_l.append(images[img])
+    images_hr = array(images_l)
     return images_hr
 
 
 # Takes list of images and provide LR images in form of numpy array
 def lr_images(images_real, downscale):
-    def imgEncodeDecode(img, quality=20):
+    def imgEncodeDecode(img, quality):
         """
         入力された画像リストを圧縮する
         [in]  in_imgs:  入力画像リスト
@@ -53,7 +57,7 @@ def lr_images(images_real, downscale):
         [out] out_imgs: 出力画像リスト
         """
         # quality = random.randint(15, 40)  # Decide quality factor(15-40) by random
-        quality = 20
+        # quality = 20
         encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), quality]
 
         result, encimg = cv2.imencode('.jpg', img, encode_param)
@@ -67,9 +71,10 @@ def lr_images(images_real, downscale):
 
     images = []
     for img in range(len(images_real)):
-        images.append(imgEncodeDecode(
-            imresize(images_real[img], [images_real[img].shape[0] // downscale, images_real[img].shape[1] // downscale],
-                     interp='bicubic', mode=None), 20))
+        for q in range(15, 41):
+            images.append(imgEncodeDecode(
+                imresize(images_real[img], [images_real[img].shape[0] // downscale, images_real[img].shape[1] // downscale],
+                         interp='bicubic', mode=None), q))
     images_lr = array(images)
     return images_lr
 
