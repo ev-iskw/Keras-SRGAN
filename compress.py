@@ -7,6 +7,7 @@ from numpy.random import randint
 import cv2
 import os
 
+
 def lr_images(images_real, downscale, quality):
     def imgEncodeDecode(img, quality=20):
         # quality = random.randint(15, 40)  # Decide quality factor(15-40) by random
